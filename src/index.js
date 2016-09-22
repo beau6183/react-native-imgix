@@ -26,13 +26,11 @@ export default class ReactImgix extends Component {
     src: PropTypes.string.isRequired,
     className: PropTypes.string,
     bg: PropTypes.bool,
-    component: PropTypes.string,
     fit: PropTypes.string,
     auto: PropTypes.array,
     faces: PropTypes.bool,
     aggressiveLoad: PropTypes.bool,
     fluid: PropTypes.bool,
-    children: PropTypes.any,
     customParams: PropTypes.object,
     entropy: PropTypes.bool,
     generateSrcSet: PropTypes.bool
@@ -54,19 +52,6 @@ export default class ReactImgix extends Component {
     mounted: false
   };
 
-  forceLayout = () => {
-    const node = ReactDOM.findDOMNode(this)
-    this.setState({
-      width: node.scrollWidth,
-      height: node.scrollHeight,
-      mounted: true
-    })
-  };
-
-  componentDidMount = () => {
-    this.forceLayout()
-  };
-
   _findSizeForDimension = dim => findSizeForDimension(dim, this.props, this.state);
 
   render () {
@@ -74,8 +59,6 @@ export default class ReactImgix extends Component {
       aggressiveLoad,
       auto,
       bg,
-      children,
-      component,
       customParams,
       entropy,
       faces,
@@ -86,7 +69,6 @@ export default class ReactImgix extends Component {
     } = this.props
     let _src = ''
     let srcSet = ''
-    let _component = component
 
     let width = this._findSizeForDimension('width')
     let height = this._findSizeForDimension('height')
@@ -117,33 +99,10 @@ export default class ReactImgix extends Component {
 
     let childProps = {
       ...this.props.imgProps,
-      className: this.props.className,
       width: other.width <= 1 ? null : other.width,
       height: other.height <= 1 ? null : other.height
     }
 
-    if (bg) {
-      if (!component) {
-        _component = 'div'
-      }
-      childProps.style = {
-        ...childProps.style,
-        backgroundImage: `url(${_src})`,
-        backgroundSize: 'cover'
-      }
-    } else {
-      if (!component) {
-        _component = 'img'
-      }
-
-      if (_component === 'img' && generateSrcSet) {
-        childProps.srcSet = srcSet
-      }
-
-      childProps.src = _src
-    }
-    return React.createElement(_component,
-      childProps,
-      children)
+    return <Image {...childProps} />;
   }
 }
