@@ -1,4 +1,4 @@
-# React Imgix
+# React Native Imgix
 
 [![npm version](https://img.shields.io/npm/v/react-imgix.svg)](https://www.npmjs.com/package/react-imgix)
 [![Build Status](https://travis-ci.org/imgix/react-imgix.svg?branch=master)](https://travis-ci.org/imgix/react-imgix)
@@ -8,25 +8,25 @@
 
 A [React](https://facebook.github.io/react/) component that renders images using the [Imgix](https://www.imgix.com/) API. It uses the smallest images possible, and does cool stuff, like [cropping to faces](https://www.imgix.com/docs/reference/size#param-crop) by default.
 
+## Credits
+A react-native port of [react-imgix](https://github.com/imgix/react-imgix)
+
 ## Installation
 
 ```
-npm install --save react-imgix
+npm install --save react-native-imgix
 ```
 
 ## Usage
 
 ```js
-import Imgix from 'react-imgix'
+import Imgix from 'react-native-imgix'
 
 <Imgix
   src={string} // required, usually in the form: 'https://[your_domain].imgix.net/[image]'. Don't include any parameters.
-
+  
   aggressiveLoad={bool} // whether to wait until the component has mounted to render the image, useful for auto-sizing, defaults to false
   auto={array} // array of values to pass to Imgix's auto param, defaults to ['format']
-  bg={bool} // whether to render the image as a background of the component, defaults to false
-  component={string} // wrapper component to use, defaults to 'img' for inline, and 'div' when bg is true
-  className={string}
   entropy={bool} // whether or not to crop using points of interest. See Imgix API for more details. Defaults to false
   faces={bool} // whether to crop to faces, defaults to true
   fit={string} // see Imgix's API, defaults to 'crop'
@@ -36,10 +36,9 @@ import Imgix from 'react-imgix'
   width={number} // force images to be a certain width, overrides precision
   generateSrcSet={bool} // generate 2x and 3x src sets when using an <img> tag. Defaults to true
   customParams={object} // any other Imgix params to add to the image src
-  imgProps={object} // any other attributes to add to the html node (example: 'alt', 'data-*')
+  imgProps={object} // any other attributes to add to the Image component
 />
 ```
 
-Author: [Frederick Fogerty](http://twitter.com/fredfogerty)
-
+Author: Devin Otway
 License: ISC
