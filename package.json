@@ -9,7 +9,6 @@
   "scripts": {
     "build": "npm run build:lib",
     "build:lib": "babel src --out-dir lib",
-    "prepublish": "npm run build",
     "test": "standard && mocha --require babel-core/register --recursive src/*.test.js",
     "test:watch": "mocha --require babel-core/register --recursive src/*.test.js --watch --reporter min"
   },
