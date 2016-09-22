@@ -1,6 +1,6 @@
 {
   "name": "react-native-imgix",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "React native port of React Imgix",
   "main": "lib/index.js",
   "standard": {
