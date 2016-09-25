@@ -5,8 +5,8 @@ Licensed under the Apache License 2.0, seen https://github.com/coursera/react-im
 Minor syntax modifications have been made
 */
 
-var Uri = require('jsuri')
-var Base64 = require('js-base64').Base64
+import Uri from 'jsuri';
+import {Base64} from 'js-base64';
 
 // @see https://www.imgix.com/docs/reference
 var PARAM_EXPANSION = Object.freeze({

@@ -1,5 +1,4 @@
 import React, {Component, PropTypes} from 'react'
-
 import processImage from './support.js'
 
 const roundToNearest = (size, precision) => precision * Math.ceil(size / precision)
