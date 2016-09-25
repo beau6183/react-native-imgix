@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/imgix/react-native-imgix#readme",
   "peerDependencies": {
-    "react": "~0.14",
+    "react": "~15.2.0",
     "react-native": "~0.31.0"
   },
   "dependencies": {

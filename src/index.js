@@ -21,7 +21,7 @@ const findSizeForDimension = (dim, props = {}, state = {}) => {
   }
 }
 
-export default class ReactImgix extends Component {
+export default class Imgix extends Component {
   static propTypes = {
     source: PropTypes.string.isRequired,
     className: PropTypes.string,
@@ -97,12 +97,6 @@ export default class ReactImgix extends Component {
       srcSet = `${dpr2} 2x, ${dpr3} 3x`
     }
 
-    let childProps = {
-      ...this.props.imgProps,
-      width: other.width <= 1 ? null : other.width,
-      height: other.height <= 1 ? null : other.height
-    }
-
-    return <Image {...childProps} source={{uri: source}} />;
+    return <Image {...this.props.imageProps} style={this.props.style} source={{uri: source}} />;
   }
 }
