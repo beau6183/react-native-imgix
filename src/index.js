@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import processImage from './support.js'
+import {Image} from 'react-native'
 
 const roundToNearest = (size, precision) => precision * Math.ceil(size / precision)
 
@@ -22,7 +23,7 @@ const findSizeForDimension = (dim, props = {}, state = {}) => {
 
 export default class ReactImgix extends Component {
   static propTypes = {
-    src: PropTypes.string.isRequired,
+    source: PropTypes.string.isRequired,
     className: PropTypes.string,
     bg: PropTypes.bool,
     fit: PropTypes.string,
@@ -63,7 +64,7 @@ export default class ReactImgix extends Component {
       faces,
       fit,
       generateSrcSet,
-      src,
+      source,
       ...other
     } = this.props
     let _src = ''
@@ -90,9 +91,9 @@ export default class ReactImgix extends Component {
         height
       }
 
-      _src = processImage(src, srcOptions)
-      const dpr2 = processImage(src, {...srcOptions, dpr: 2})
-      const dpr3 = processImage(src, {...srcOptions, dpr: 3})
+      _src = processImage(source, srcOptions)
+      const dpr2 = processImage(source, {...srcOptions, dpr: 2})
+      const dpr3 = processImage(source, {...srcOptions, dpr: 3})
       srcSet = `${dpr2} 2x, ${dpr3} 3x`
     }
 
