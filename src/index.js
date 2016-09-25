@@ -100,7 +100,8 @@ export default class ReactImgix extends Component {
     let childProps = {
       ...this.props.imgProps,
       width: other.width <= 1 ? null : other.width,
-      height: other.height <= 1 ? null : other.height
+      height: other.height <= 1 ? null : other.height,
+      source: _src
     }
 
     return <Image {...childProps} />;
